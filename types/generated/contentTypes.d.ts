@@ -362,40 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiEducationEducation extends Schema.CollectionType {
-  collectionName: 'educations';
-  info: {
-    singularName: 'education';
-    pluralName: 'educations';
-    displayName: 'Education';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Institute: Attribute.String & Attribute.Required & Attribute.Unique;
-    Course: Attribute.String & Attribute.Required & Attribute.Unique;
-    Location: Attribute.String & Attribute.Required & Attribute.Unique;
-    StartingDate: Attribute.Date & Attribute.Required & Attribute.Unique;
-    EndingDate: Attribute.Date & Attribute.Required & Attribute.Unique;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::education.education',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::education.education',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -822,6 +788,186 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiContactInfoContactInfo extends Schema.SingleType {
+  collectionName: 'contact_infos';
+  info: {
+    singularName: 'contact-info';
+    pluralName: 'contact-infos';
+    displayName: 'ContactInfo';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Phone: Attribute.String & Attribute.Required & Attribute.Unique;
+    PhoneLink: Attribute.String & Attribute.Required & Attribute.Unique;
+    Email: Attribute.Email & Attribute.Required & Attribute.Unique;
+    EmailLink: Attribute.String & Attribute.Required & Attribute.Unique;
+    LinkedIn: Attribute.String & Attribute.Required & Attribute.Unique;
+    LinkedInLink: Attribute.String & Attribute.Required & Attribute.Unique;
+    Location: Attribute.String & Attribute.Required & Attribute.Unique;
+    LocationLink: Attribute.String & Attribute.Required & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-info.contact-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-info.contact-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEducationEducation extends Schema.CollectionType {
+  collectionName: 'educations';
+  info: {
+    singularName: 'education';
+    pluralName: 'educations';
+    displayName: 'Education';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Institute: Attribute.String & Attribute.Required & Attribute.Unique;
+    Course: Attribute.String & Attribute.Required & Attribute.Unique;
+    Location: Attribute.String & Attribute.Required;
+    StartingDate: Attribute.Date & Attribute.Required & Attribute.Unique;
+    EndingDate: Attribute.Date & Attribute.Required & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::education.education',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::education.education',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProfileProfile extends Schema.SingleType {
+  collectionName: 'profiles';
+  info: {
+    singularName: 'profile';
+    pluralName: 'profiles';
+    displayName: 'Profile';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    FullName: Attribute.String & Attribute.Required & Attribute.Unique;
+    ProfileImg: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.Private;
+    Resume: Attribute.Media<'files'> & Attribute.Required & Attribute.Private;
+    ResumeImg: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.Private;
+    Nationality: Attribute.String & Attribute.Required & Attribute.Unique;
+    DateofBirth: Attribute.Date & Attribute.Required & Attribute.Unique;
+    AboutContent: Attribute.Text & Attribute.Required & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::profile.profile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::profile.profile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSkillsListSkillsList extends Schema.CollectionType {
+  collectionName: 'skills_lists';
+  info: {
+    singularName: 'skills-list';
+    pluralName: 'skills-lists';
+    displayName: 'SkillsList';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::skills-list.skills-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::skills-list.skills-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiWorkHistoryWorkHistory extends Schema.CollectionType {
+  collectionName: 'work_histories';
+  info: {
+    singularName: 'work-history';
+    pluralName: 'work-histories';
+    displayName: 'WorkHistory';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Position: Attribute.String & Attribute.Required & Attribute.Unique;
+    Company: Attribute.String & Attribute.Required & Attribute.Unique;
+    Location: Attribute.String & Attribute.Required & Attribute.Unique;
+    StartingDate: Attribute.Date & Attribute.Required & Attribute.Unique;
+    EndingDate: Attribute.Date & Attribute.Unique;
+    content: Attribute.Blocks & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::work-history.work-history',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::work-history.work-history',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -832,7 +978,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::education.education': ApiEducationEducation;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -841,6 +986,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::contact-info.contact-info': ApiContactInfoContactInfo;
+      'api::education.education': ApiEducationEducation;
+      'api::profile.profile': ApiProfileProfile;
+      'api::skills-list.skills-list': ApiSkillsListSkillsList;
+      'api::work-history.work-history': ApiWorkHistoryWorkHistory;
     }
   }
 }

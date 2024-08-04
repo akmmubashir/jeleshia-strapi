@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "educations",
+  "collectionName": "work_histories",
   "info": {
-    "singularName": "education",
-    "pluralName": "educations",
-    "displayName": "Education",
+    "singularName": "work-history",
+    "pluralName": "work-histories",
+    "displayName": "WorkHistory",
     "description": ""
   },
   "options": {
@@ -12,20 +12,20 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Institute": {
+    "Position": {
       "type": "string",
-      "required": true,
-      "unique": true
+      "unique": true,
+      "required": true
     },
-    "Course": {
+    "Company": {
       "type": "string",
       "required": true,
       "unique": true
     },
     "Location": {
       "type": "string",
-      "unique": false,
-      "required": true
+      "required": true,
+      "unique": true
     },
     "StartingDate": {
       "type": "date",
@@ -34,7 +34,10 @@
     },
     "EndingDate": {
       "type": "date",
-      "unique": true,
+      "unique": true
+    },
+    "content": {
+      "type": "blocks",
       "required": true
     }
   }
