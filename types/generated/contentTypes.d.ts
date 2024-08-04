@@ -362,6 +362,40 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiEducationEducation extends Schema.CollectionType {
+  collectionName: 'educations';
+  info: {
+    singularName: 'education';
+    pluralName: 'educations';
+    displayName: 'Education';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Institute: Attribute.String & Attribute.Required & Attribute.Unique;
+    Course: Attribute.String & Attribute.Required & Attribute.Unique;
+    Location: Attribute.String & Attribute.Required & Attribute.Unique;
+    StartingDate: Attribute.Date & Attribute.Required & Attribute.Unique;
+    EndingDate: Attribute.Date & Attribute.Required & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::education.education',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::education.education',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -798,6 +832,7 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::education.education': ApiEducationEducation;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
