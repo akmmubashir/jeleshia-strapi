@@ -15,7 +15,13 @@ module.exports = [
       },
     },
   },
-  'strapi::cors',
+ {
+    name: 'strapi::cors',
+    config: {
+      origin: ['https://jeleshia-strapi.onrender.com'], // Replace with your Next.js app's URL
+      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    },
+  },
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
