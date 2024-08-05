@@ -22,6 +22,7 @@ module.exports = [
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     },
   },
+  // 'strapi::cors',
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
